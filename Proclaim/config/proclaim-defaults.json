@@ -1,8 +1,8 @@
 {
-    "default_theme" :   "Proclaim",
-    "root"          :   "Proclaim/",
-    "theme_root"    :   "Proclaim/themes/",
-    "active_theme"  :   "Proclaim",
+    "default_theme" :   "proclaim",
+    "root"          :   "proclaim/",
+    "theme_root"    :   "proclaim/themes/",
+    "active_theme"  :   "proclaim",
     "charset"       :   "utf-8",
     "debug"         :   true
 }
