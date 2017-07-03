@@ -1,0 +1,8 @@
+{
+    "default_theme" :   "Proclaim",
+    "root"          :   "Proclaim/",
+    "theme_root"    :   "Proclaim/themes/",
+    "active_theme"  :   "Proclaim",
+    "charset"       :   "utf-8",
+    "debug"         :   true
+}
