@@ -4,14 +4,16 @@
 <style>
     #proclaim-status-panel {
         position: fixed;
+        border-bottom: 4px solid #afafaf;
         z-index: 1000;
-        bottom: 15px;
-        right: 15px;
+        bottom: 1rem;
+        right: 1rem;
         width: 300px;
         height: 50px;
-        padding: 15px;
+        padding: 1rem;
         background-color: #efefef;
-        font-size: .8rem;
+        font-size: 0.8rem;
+        cursor: move;
     }
 </style>
 <div id="proclaim-status-panel"> 
@@ -23,6 +25,8 @@
     ?> 
 </div>
 <script type="text/javascript">
+    // From Shaedo on SO
+    // https://stackoverflow.com/questions/13152578/create-a-draggable-div-in-native-javascript
     function get (el) {
         if (typeof el == 'string') return document.getElementById(el);
         return el;
@@ -31,16 +35,21 @@
     var dragObj = null; //object to be moved
     var xOffset = 0; //used to prevent dragged object jumping to mouse location
     var yOffset = 0;
+    var el;
         
     window.onload = function()
     {
-        document.getElementById("proclaim-status-panel").addEventListener("mousedown", startDrag, true);
-        document.getElementById("proclaim-status-panel").addEventListener("touchstart", startDrag, true);
+        el = document.getElementById("proclaim-status-panel");
+        el.addEventListener("mousedown", startDrag, true);
+        el.addEventListener("touchstart", startDrag, true);
     }
 
     function startDrag(e)
     /*sets offset parameters and starts listening for mouse-move*/
-    {
+    {   
+        // Prevent children from becoming draggable
+        if( e.target === el ) {
+
         e.preventDefault();
         e.stopPropagation();
         dragObj = e.target;
@@ -59,6 +68,9 @@
             yOffset = e.targetTouches[0].clientY - rect.top;
             window.addEventListener('touchmove', dragObject, true);
         }
+
+        } //endif
+
     }
 
     function dragObject(e)
